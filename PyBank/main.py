@@ -1,62 +1,35 @@
-
+''' PnL data processing: DataBootCamp Homework 3 '''
 
 import os
 import csv
 import sys
 
-# Declare the file path name
+# Input and output data files
 budget_data_csv = "Resources/budget_data.csv"
-
-# Text file to be written and exported
 analysis = "financial_analysis.txt"
 
-# Open and read csv
+# lists and other variables to be initialized 
+monthly_pnl = []
+month = []
+net_pnl = 0
+change = float  # monthly_change values
+monthly_change = []
+
+# Process the lines of PnL data
 with open(budget_data_csv, 'r', newline="") as budgetfile:
     csvreader = csv.reader(budgetfile, delimiter=",")
-
-    # Read the header row first
     csv_header = next(csvreader)
-    
-    print(type(csv_header))
-
-    # Creates a list of strings, each one being a separate row of the CSV file, and 
-    # the variables to store the valuse
     lines = budgetfile.readlines()
-    monthly_pnl = []
-    month = []
-    
-    # A variable to keep net profit/losses sum
-    net_pnl = 0
-
-    # Some variables to hold and store monthly_change values
-    change = float
-    monthly_change = []
-
-    # Split each line at the comma and add the split line to separated_lines
     for row in lines:
         row = row.split(",")
-        
-        # Add values to the monthly_pnl and month lists
         monthly_pnl.append(row[1])
         month.append(row[0])
-        
-        # Sum pofit and loss values
         net_pnl += float(row[1])
-
-    # Add values to monthly_change list
     for x in range(len(monthly_pnl) - 1):
         change = float(monthly_pnl[x+1]) - float(monthly_pnl[x])
         monthly_change.append(change)
-
-    # Calculate the average change between months
     average_change = sum(monthly_change) / len(monthly_change)
-
-    # Variables for the max and min change
-    max_change = float
-    min_change = float
-    max_change_month_index = int
-    min_change_month_index = int
-
+    
     # Assign values
     max_change = max(monthly_change) 
     min_change = min(monthly_change)
