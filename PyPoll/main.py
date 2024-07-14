@@ -12,7 +12,7 @@ import os
 import csv
 
 # Name the file paths and names for read and write files
-poll_data = os.path.join("..", "Resources", "election_data.csv")
+poll_data = os.path.join(".", "Resources", "election_data.csv")
 election_results = "election_results.txt"
 
 total = 0
@@ -37,7 +37,7 @@ with open(poll_data, 'r', newline="") as results:
             winner = candidate
     
     # Print election resuts to terminal
-    print("Election Results\n" + \
+    print("\nElection Results\n" + \
     "-------------------------" + "\n" + \
     f"Total Votes: {total}" + "\n" + \
     "-------------------------" + "\n")
@@ -59,5 +59,5 @@ with open(poll_data, 'r', newline="") as results:
 
     f.write("-------------------------" + "\n" + \
     "Winner: " + winner + "\n" + \
-    "-------------------------")
+    "-------------------------\n")
     f.close()
