@@ -36,19 +36,23 @@ with open(budget_data_csv, 'r', newline="") as budgetfile:
     max_change_month_index = monthly_change.index(max(monthly_change))
     min_change_month_index = monthly_change.index(min(monthly_change))
 
+    
+if __name__ == '__main__':
     # Print the financial analysis to terminal and financial_analysis.txt
-    print("Financial Analysis\n" + "_"*30)
+    print("\n" + "Financial Analysis\n" + "-"*30)
     print("Total Months: " + str(len(lines)))
     print("Total:  " + str(net_pnl))
     print("Average Change = " + str(average_change))
     print(f'Greatest Increase in Profits: {month[max_change_month_index]} ({max_change})')
     print(f'Greatest Decrease in Profits: {month[min_change_month_index]} ({min_change})')
+    print("-"*30 + "\n")
 
     f = open(analysis,"a+")
-    f.write("Financial Analysis\n" + "_"*30 + "\n")
+    f.write("Financial Analysis\n")
     f.write("Total Months: " + str(len(lines)) + "\n")
     f.write("Total:  " + str(net_pnl) + "\n")
     f.write("Average Change = " + str(average_change) + "\n")
     f.write(f'Greatest Increase in Profits: {month[max_change_month_index]} ({max_change})\n')
     f.write(f'Greatest Decrease in Profits: {month[min_change_month_index]} ({min_change})\n')
+    f.write("\n")
     f.close()
