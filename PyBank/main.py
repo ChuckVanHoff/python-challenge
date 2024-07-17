@@ -6,7 +6,7 @@ import sys
 
 # Input and output data files
 budget_data_csv = "Resources/budget_data.csv"
-analysis = "financial_analysis.txt"
+analysis = "Resources/financial_analysis.txt"
 
 # lists and other variables to be initialized 
 monthly_pnl = []
