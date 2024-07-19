@@ -10,7 +10,7 @@ The output is a screen printout and display of:
   Greatest decrease between consecutive months
   Graph of each data point
   Graph of the cummulative sum of all profits and losses
-The screen printout and graphs saved as text and png files in the Resources
+The screen printout and graphs are saved as text and png files in the Resources
 directory.
 
 PyPoll:
