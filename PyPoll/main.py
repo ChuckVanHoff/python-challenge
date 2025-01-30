@@ -11,13 +11,18 @@ A program to analyzes election votes and calculate each of the following:
 import os
 import csv
 
-# Name the file paths and names for read and write files
+import pandas as pd
+
+# Name the file paths and names for read and write files.
 poll_data = os.path.join(".", "Resources", "election_data.csv")
 election_results = "election_results.txt"
 
 total = 0
 candidates = {}
 
+# Read the file into a pandas DataFrame for analyzing.
+election_data = pd.read_csv(poll_data)
+# Open the data csv to tally the votes the old school way.
 with open(poll_data, 'r', newline="") as results:
     csvreader = csv.reader(results, delimiter=",")
     next(csvreader)
